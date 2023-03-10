@@ -1,5 +1,5 @@
 ---
-title: "How gas works"
+title: "Gas"
 description: "Gas in the Filecoin EVM runtime works quite differently from the regular Ethereum virtual machine (EVM)."
 lead: "Gas in the Filecoin EVM runtime works quite differently from the regular Ethereum virtual machine (EVM). Instead of assigning a fixed gas cost in each instruction, the Filecoin EVM runtime charges FIL gas based on the WASM code execution of the Filecoin EVM runtime interpreter."
 draft: false
@@ -113,10 +113,8 @@ echo $((16#31157))
 
 ## Additional Resources
 
-Gas FIPs:
-- https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0032.md
-- https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0037.md
-- https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0054.md
-
-Primitive Gas Price list:
-- https://github.com/filecoin-project/ref-fvm/blob/master/fvm/src/gas/price_list.rs
+- Gas Filecoin improvement proposals (FIPs):
+    - [FIP 0032](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0032.md)
+    - [FIP 0037](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0037.md)
+    - [FIP 0054](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0054.md)
+- [Primitive Gas Price list](https://github.com/filecoin-project/ref-fvm/blob/master/fvm/src/gas/price_list.rs)
