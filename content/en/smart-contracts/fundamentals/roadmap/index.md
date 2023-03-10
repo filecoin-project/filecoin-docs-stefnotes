@@ -10,7 +10,7 @@ menu:
     parent: "smart-contracts-fundamentals"
     identifier: "roadmap-b64b98801115371de29b1c0f0aa35047"
 weight: 140
-toc: false
+toc: true
 ---
 
 ## ✅ Milestone 0

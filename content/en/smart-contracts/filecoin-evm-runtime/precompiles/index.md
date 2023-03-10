@@ -32,9 +32,9 @@ Resolves a Filecoin address (e.g., "f01", "f2abcde") into a Filecoin actor ID (`
     - If the target actor doesn't exist, succeed with no return value.
     - If the supplied address is invalid (cannot be parsed as a Filecoin address), revert.
 
-### Example
+For example:
 
-```solidity
+```
 (bool success, bytes memory actor_id_bytes) = address(0xfe00000000000000000000000000000000000001).staticcall(fil_address_bytes);
 require(success, "invalid address");
 require(actor_id_bytes.length == 32, "actor not found");
@@ -57,9 +57,9 @@ Looks up the "delegated address" (f4 address) of an actor by ID. This precompile
     - If the target actor exists and has a delegated address, succeed and return the delegated address as raw bytes.
     - Otherwise, succeed with no return value.
 
-### Example
+For example:
 
-```solidity
+```javascript
 (bool success, bytes memory delegated_address_bytes) = address(0xfe00000000000000000000000000000000000002).staticcall(abi.encode(uint256(actor_id)));
 ```
 
@@ -71,7 +71,7 @@ Calls the specified actor using the native FVM calling convention by its _Fileco
 
 - Input: ABI Encoded:
 
-  ```solidity
+  ```javascript
   (uint64 method, uint256 value, uint64 flags, uint64 codec, bytes params, bytes filAddress)
   ```
 
@@ -85,7 +85,7 @@ Calls the specified actor using the native FVM calling convention by its _Fileco
 
 - Output: ABI Encoded:
 
-  ```solidity
+  ```javascript
   (int256 exit_code, uint64 return_codec, bytes return_value)
   ```
 
@@ -102,9 +102,9 @@ Calls the specified actor using the native FVM calling convention by its _Fileco
 ⚠️ This precompile only reverts if an input is statically invalid. If the precompile fails to call the target actor for any other reason, it will return a non-zero `exit_code` but will not revert.
 {{< /alert >}}
 
-### Example
+For example:
 
-```solidity
+```javascript
 (bool success, bytes memory data) = address(0xfe00000000000000000000000000000000000003).delegatecall(abi.encode(method, value, flags, codec, params, filAddress));
 (int256 exit, uint64 return_codec, bytes memory return_value) = abi.decode(data, (int256, uint64, bytes));
 ```
@@ -117,13 +117,13 @@ Address: `0xfe00000000000000000000000000000000000005`
 
 This precompile is identical to the "Call Actor By Address" (0xfe00..03) except that it accepts an actor ID (`uint64`) instead of an actor address as the last parameter. That is:
 
-```solidity
+```javascript
 (uint64 method, uint256 value, uint64 flags, uint64 codec, bytes params, uint64 actorId)
 ```
 
-### Example
+For example:
 
-```solidity
+```javascript
 (bool success, bytes memory data) = address(0xfe00000000000000000000000000000000000005).delegatecall(abi.encode(method, value, flags, codec, params, id));
 (int256 exit, uint64 return_codec, bytes memory return_value) = abi.decode(data, (int256, uint64, bytes));
 ```
