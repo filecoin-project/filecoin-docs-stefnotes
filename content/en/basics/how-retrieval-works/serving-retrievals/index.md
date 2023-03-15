@@ -7,7 +7,7 @@ images: []
 type: docs
 menu:
   basics:
-  parent: "basics-how-retrievals-work
+    parent: "basics-how-retrievals-work"
     identifier: "serving-retrievals-21f14f25e21f23f44989b9fafad6868d"
 weight: 100
 toc: true
